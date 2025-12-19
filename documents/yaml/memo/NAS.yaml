@@ -1,0 +1,51 @@
+php:
+  section: PHP Versions
+  icon: '<i class="fa-brands fa-php fa-xl"></i>'
+  items:
+    - content: PHP 7 NTS
+      id: php7
+      cmd: '7.4.30 NTS'
+      help: null
+    - content: PHP 8 NTS
+      id: php8
+      cmd: '8.2.5-0102 NTS'
+      help: null
+
+mariaDB:
+  section: MariaDB
+  icon: '<i class="fa-solid fa-database fa-xl"></i>'
+  items:
+    - content: MariaDB 10
+      id: MariaDB10
+      cmd: '10.11.2'
+      help: null
+
+python:
+  section: Python Versions
+  icon: '<i class="fa-brands fa-python fa-xl"></i>'
+  items:
+    - content: Python 2.7
+      id: python271
+      cmd: '2.7.18'
+      help: null
+    - content: Python 3.11
+      id: python311
+      cmd: '3.11.3'
+      help: null
+    - content: Pip
+      id: pip
+      cmd: '22.2.2'
+      help: null
+
+nodejs:
+  section: Node JS Versions
+  icon: '<i class="fa-brands fa-python fa-xl"></i>'
+  items:
+    - content: NodeJS 16
+      id: nodejs16
+      cmd: '16.19.1-2012'
+      help: null
+    - content: NodeJS 18
+      id: nodejs18
+      cmd: '18.15.0-1008'
+      help: null

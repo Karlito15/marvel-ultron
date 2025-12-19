@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/software', name: 'app.software.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class SoftwareController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/cmdr.php', name: 'cmdr')]
+    public function cmdr(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.cmdr');
+        $file  = 'software/CmdR.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/everythings.php', name: 'everythings')]
+    public function everythings(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.everythings');
+        $file  = 'software/Everythings.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/heidi.php', name: 'heidi')]
+    public function heidi(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.heidi');
+        $file  = 'software/Heidi.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/mp3tag.php', name: 'mp3tag')]
+    public function mp3tag(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.mp3tag');
+        $file  = 'software/MP3Tag.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 3,
+        ]);
+    }
+
+    #[Route(path: '/multicommander.php', name: 'multicommander')]
+    public function multicommander(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.multicommander');
+        $file  = 'software/MultiCommander.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/vim.php', name: 'vim')]
+    public function vim(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.vim');
+        $file  = 'software/VIM.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.software'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+}

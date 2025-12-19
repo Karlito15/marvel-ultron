@@ -1,0 +1,21 @@
+
+{% block content %}
+
+    <div class="jumbotron bg-dark shadow rounded p-15">
+        <h1 class="h2 font-weight-bold float-left">{{ breadcrumb.level2 }}</h1>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-xl-12">
+            <div class="card-deck">
+
+                <twig:Table datas="{{ datas }}" filter="{{ filter }}" />
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% extends '@App/bases/full.html.twig' %}

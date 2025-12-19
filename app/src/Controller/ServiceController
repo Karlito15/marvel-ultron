@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/service', name: 'app.service.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class ServiceController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/bitbucket.php', name: 'bitbucket')]
+    public function bitbucket(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.bitbucket');
+        $file  = 'service/Bitbucket.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.service'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/maildev.php', name: 'maildev')]
+    public function maildev(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.maildev');
+        $file  = 'service/MailDev.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.service'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://maildev.github.io/maildev/',
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/mailgun.php', name: 'mailgun')]
+    public function mailgun(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.mailgun');
+        $file  = 'service/Mailgun.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.service'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://help.mailgun.com/hc/en-us',
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/mailtrap.php', name: 'mailtrap')]
+    public function mailtrap(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.mailtrap');
+        $file  = 'service/Mailtrap.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.service'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://api-docs.mailtrap.io/',
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/ovhmanager.php', name: 'ovhmanager')]
+    public function ovhmanager(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.ovh');
+        $file  = 'service/OVH.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.memo'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+}

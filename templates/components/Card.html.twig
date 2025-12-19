@@ -1,0 +1,53 @@
+<!-- component HTML -->
+<div class="row">
+{% for key, value in data %}
+    <div class="col-lg-{{ this.column() }} col-md-12">
+        <div class="card border border-1 border-light-subtle mb-2">
+            <div class="card-header">
+                <h2 class="card-title">{{ this.extractIcon(value)|raw }}&nbsp;{{ this.extractTitle(value) }}</h2>
+            </div>
+            <div class="card-body p-2">
+            {% for item in this.extractItems(value) %}
+                {% set id = item.id|replace({' ': '_', "'": '_'}) %}
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button
+                                class="btn btn-outline-secondary border-secondary input-group-text clipboardjs"
+                                data-clipboard-action="copy"
+                                data-clipboard-target="#{{ id }}"
+                            >
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
+                        <label for="{{ id }}"></label>
+{#                        {% if item.prism is defined %}{{ dump(item.prism) }}{% endif %}#}
+                        {% if item.free is defined %}
+                        <textarea id="{{ id }}" class="form-control text-white fw-bold border-secondary" rows="20">{{ item.free }}</textarea>
+                        {% else %}
+                        <input
+                            type="text"
+                            id="{{ id }}"
+                            class="form-control text-white fw-bold border-secondary"
+                            placeholder="{{ item.cmd }}"
+                            value="{{ item.cmd }}"
+                        >
+                        {% endif %}
+                        <div class="input-group-append">
+                            <button
+                                class="btn btn-outline-secondary border-secondary input-group-text clipboardjs"
+                                data-clipboard-action="copy"
+                                data-clipboard-target="#{{ id }}"
+                            >
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            <div class="card-footer">&nbsp;</div>
+        </div>
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,62 @@
+    <div id="left-sidebar" class="sidebar">
+        <div class="navbar-brand">
+            <a href="{{ path('app.homepage.index') }}">
+                <img src="{{ asset('bundles/blurp/themes/images/icon.svg') }}" class="img-fluid logo" alt="{{ metas.title }}">
+                <span>{{ metas.title }}</span>
+            </a>
+            <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right">
+                <i class="lnr lnr-menu icon-close"></i>
+            </button>
+        </div>
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <div class="user_div">
+                    <img src="{{ asset(images.logo) }}" class="user-photo" alt="User Profile Picture">
+                </div>
+                <div class="dropdown">
+                    <span>Welcome,</span>
+                    <a href="{{ path('app.homepage.index') }}" class="user-name">
+                        <strong>{{ metas.title }}</strong>
+                    </a>
+                </div>
+            </div>
+            <nav id="left-sidebar-nav" class="sidebar-nav">
+                <ul id="main-menu" class="metismenu">
+                    <li class="header">Main</li>
+                    <li>
+                        <a href="{{ path('app.homepage.index') }}">
+                            <i class="icon-home"></i>
+                            <span>{{ 'text.homepage'|trans }}</span>
+                        </a>
+                    </li>
+{#                    <li{{ _self.active('app.custom') }}><a href="#custom" class="has-arrow"><i class="icon-user-following"></i><span>{{ 'text.custom'|trans }}</span></a></li>#}
+                    <li><a href="{{ path('app.memo.boulangerie') }}"><i class="icon-doc"></i><span>{{ 'text.boulangerie'|trans }}</span></a></li>
+                    <li><a href="{{ path('app.memo.superette') }}"><i class="icon-doc"></i><span>{{ 'text.superette'|trans }}</span></a></li>
+                    <li><a href="{{ path('app.memo.login') }}"><i class="icon-doc"></i><span>{{ 'text.login'|trans }}</span></a></li>
+                    <li><a href="{{ path('app.memo.NAS') }}"><i class="icon-doc"></i><span>{{ 'text.NAS'|trans }}</span></a></li>
+                    <li><a href="{{ path('app.memo.searchandreplace') }}"><i class="icon-doc"></i><span>{{ 'text.search'|trans }}</span></a></li>
+                    <li><a href="{{ path('app.memo.meteo') }}"><i class="icon-doc"></i><span>{{ 'text.meteo'|trans }}</span></a></li>
+                    <li><a href="javascript:void(0);"><i class="icon-doc"></i><span>Documentation</span></a></li>
+                    {% if app.environment == 'dev' %}
+                    <li><a href="{{ path('_preview_error', {'code': 403}) }}"><i class="icon-doc"></i><span>Error 403</span></a></li>
+                    <li><a href="{{ path('_preview_error', {'code': 404}) }}"><i class="icon-doc"></i><span>Error 404</span></a></li>
+                    <li><a href="{{ path('_preview_error', {'code': 500}) }}"><i class="icon-doc"></i><span>Error 500</span></a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+{% macro active(route) %}
+    {% if app.current_route starts with route%} class="active open"{% endif %}
+{% endmacro %}
+
+{% macro link(text, target) %}
+
+    {% if target == app.current_route %}
+        <li class="active"><a href="{{ path(target) }}">{{ text|trans }}</a></li>
+    {% else %}
+        <li><a href="{{ path(target) }}">{{ text }}</a></li>
+    {% endif %}
+
+{% endmacro %}

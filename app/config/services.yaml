@@ -1,0 +1,59 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    app.supported_locales:  'en|fr|it'
+    app.env:                '%env(APP_ENV)%'
+    locale:                 'fr'
+    metas:
+        title:              'Ultron'
+        author:             'Giancarlo PALUMBO'
+        email:              'giancarlo.palumbo@free.fr'
+        description:        ~
+        generator:          ~
+    folders:
+        csv:                '%kernel.project_dir%/../documents/csv/'
+        json:               '%kernel.project_dir%/../documents/json/'
+        markdown:           '%kernel.project_dir%/../documents/markdown/'
+        sql:                '%kernel.project_dir%/../documents/sql/'
+        txt:                '%kernel.project_dir%/../documents/txt/'
+        yaml:               '%kernel.project_dir%/../documents/yaml/'
+    color:                  'C8201B'
+#    images:
+#        avatar:             'images/sako-01.jpg'
+when@dev:
+    parameters:
+        cache_lifetime:
+            dashboards:     2  # 10 min
+        images:
+            logo:           'images/user/user.png'
+when@prod:
+    parameters:
+        cache_lifetime:
+            dashboards:     3600    # (60 * 60 = 1 hour)
+        images:
+            logo:           'images/user/user.png'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    # Cache
+    Symfony\Component\Cache\Adapter\TagAwareAdapterInterface:
+        class: Symfony\Component\Cache\Adapter\TagAwareAdapter
+        arguments: ['@cache.app']
+
+    # Commands
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'

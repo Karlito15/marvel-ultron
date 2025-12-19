@@ -1,0 +1,109 @@
+multi_commander:
+  section: "Multi Commander"
+  icon: '<i class="fa-brands fa-youtube fa-xl"></i>'
+  items:
+  - content: "Rename Youtube File"
+    id: multi_commander
+    cmd: null
+    help: null
+    prism: 'language-php'
+    free: |
+      " (1040p_30fps_H264-128kbit_AAC)"|
+      " (1040p_30fps_VP9-128kbit_AAC)"|
+      " (1072p_30fps_VP9-128kbit_AAC)"|
+      " (1080p_24fps_VP9-128kbit_AAC)"|
+      " (1080p_25fps_H264-128kbit_AAC)"|
+      " (1080p_25fps_VP9-128kbit_AAC)"|
+      " (1080p_30fps_H264-128kbit_AAC)"|
+      " (1080p_30fps_VP9-128kbit_AAC)"|
+      " (1080p_50fps_H264-128kbit_AAC)"|
+      " (1080p_50fps_VP9-128kbit_AAC)"|
+      " (1080p_60fps_H264-128kbit_AAC)"|
+      " (1080p_60fps_VP9-128kbit_AAC)"|
+      " (1280p_25fps_AV1-128kbit_AAC)"|
+      " (1280p_25fps_VP9-128kbit_AAC)"|
+      " (1800p_30fps_VP9 LQ-128kbit_AAC)"|
+      " (1920p_24fps_VP9 LQ-128kbit_AAC)"|
+      " (1920p_25fps_VP9 LQ-128kbit_AAC)"|
+      " (1920p_30fps_VP9 LQ-128kbit_AAC)"|
+      " (350p_30fps_VP9-128kbit_AAC)"|
+      " (358p_30fps_VP9-128kbit_AAC)"|
+      " (360p_15fps_VP9-128kbit_AAC)"|
+      " (360p_30fps_VP9-128kbit_AAC)"|
+      " (720p_30fps_H264-128kbit_AAC)"|
+      " (720p_30fps_H264-192kbit_AAC)"|
+      " (720p_30fps_VP9-128kbit_AAC)"|
+
+bookmarks:
+  section: "Bookmarks"
+  icon: '<i class="fa-regular fa-bookmark fa-xl"></i>'
+  items:
+  - content: "Journal du Geek"
+    id: bm_JournalduGeek
+    cmd: ' | Journal du Geek'
+    help: null
+  - content: "Slate.fr"
+    id: bm_Slate
+    cmd: ' | Slate.fr'
+    help: null
+  - content: "StreetPress"
+    id: bm_StreetPress
+    cmd: ' | StreetPress'
+    help: null
+  - content: "Les Echos"
+    id: bm_LesEchos
+    cmd: ' | Les Echos'
+    help: null
+  - content: "Le Parisien"
+    id: bm_LeParisien
+    cmd: ' - Le Parisien'
+    help: null
+  - content: "Repubblica"
+    id: bm_Repubblica
+    cmd: ' - Repubblica.it'
+    help: null
+
+regex:
+  section: "Bookmarks"
+  icon: '<i class="fa-regular fa-bookmark fa-xl"></i>'
+  items:
+  - content: "\\#content(.*)"
+    id: bm_content
+    cmd: '\#content(.*)'
+    help: null
+  - content: "\\#xtor=(.*)"
+    id: bm_xtor
+    cmd: '\#xtor=(.*)'
+    help: null
+  - content: "\\&utm_medium=(.*)"
+    id: bm_utm_medium
+    cmd: '\&utm_medium=(.*)'
+    help: null
+  - content: "\\&utm_source=(.*)"
+    id: bm_utm_source
+    cmd: '\&utm_source=(.*)'
+    help: null
+  - content: "\\?utm_campaign=(.*)"
+    id: bm_utm_campaign
+    cmd: '\?utm_campaign=(.*)'
+    help: null
+  - content: "\\?utm_source=(.*)"
+    id: bm_utm_source
+    cmd: '\?utm_source=(.*)'
+    help: null
+  - content: "?ref=(.*)"
+    id: bm_ref
+    cmd: '?ref=(.*)'
+    help: null
+  - content: "ADD_DATE=\"(\\d+)\""
+    id: bm_ADD_DATE
+    cmd: ' ADD_DATE="(\d+)'
+    help: null
+  - content: "LAST_MODIFIED=\"(\\d+)\""
+    id: bm_LAST_MODIFIED
+    cmd: ' LAST_MODIFIED="(\d+)'
+    help: null
+  - content: "ICON=\"(.*)\""
+    id: bm_ICON
+    cmd: ' ICON="(.*)'
+    help: null

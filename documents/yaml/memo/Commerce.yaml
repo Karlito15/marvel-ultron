@@ -1,0 +1,282 @@
+boulangerie:
+    -
+        name: 'Maison Dumont'
+        image: 'images/clamart/boulangerie.png'
+        adresse: '201 Avenue Jean Jaurès'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            - 
+                jour: Mardi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            - 
+                jour: Mercredi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            - 
+                jour: Jeudi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            - 
+                jour: Vendredi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            - 
+                jour: Samedi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '07h00'
+                fermeture: '19h30'
+    -
+        name: 'Maison Caille'
+        image: 'images/clamart/boulangerie.png'
+        adresse: '212 Avenue Jean Jaurès'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '06h30'
+                fermeture: '20h00'
+            -
+                jour: Mardi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            -
+                jour: Mercredi
+                ouverture: '06h30'
+                fermeture: '20h00'
+            -
+                jour: Jeudi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            -
+                jour: Vendredi
+                ouverture: '06h30'
+                fermeture: '20h00'
+            -
+                jour: Samedi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '07h00'
+                fermeture: '19h30'
+    -
+        name: 'Là...Pain'
+        image: 'images/clamart/boulangerie.png'
+        adresse: '24 Rue de Châtillon'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            -
+                jour: Mardi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Mercredi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Jeudi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Vendredi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Samedi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '07h00'
+                fermeture: '18h45'
+    -
+        name: 'Boulangerie de la Tour'
+        image: 'images/clamart/boulangerie.png'
+        adresse: '29 Avenue Jean Jaurès'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Mardi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Mercredi
+                ouverture: 'Fermé'
+                fermeture: 'Fermé'
+            -
+                jour: Jeudi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Vendredi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Samedi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '07h30'
+                fermeture: '13h30'
+    -
+        name: 'Aux Délices de Clamart'
+        image: 'images/clamart/boulangerie.png'
+        adresse: '8 Rue Hébert'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '06h30'
+                fermeture: '21h00'
+            -
+                jour: Mardi
+                ouverture: '06h30'
+                fermeture: '21h00'
+            -
+                jour: Mercredi
+                ouverture: '06h30'
+                fermeture: '21h00'
+            -
+                jour: Jeudi
+                ouverture: '06h30'
+                fermeture: '21h00'
+            -
+                jour: Vendredi
+                ouverture: '06h30'
+                fermeture: '21h00'
+            -
+                jour: Samedi
+                ouverture: '07h00'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '07h00'
+                fermeture: '20h00'
+superette:
+    -
+        name: 'Super-U'
+        image: 'images/clamart/systeme-u.png'
+        adresse: '4 Bis Rue Paul Vaillant Couturier'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '08h15'
+                fermeture: '20h30'
+            -
+                jour: Mardi
+                ouverture: '08h15'
+                fermeture: '20h30'
+            -
+                jour: Mercredi
+                ouverture: '08h15'
+                fermeture: '20h30'
+            -
+                jour: Jeudi
+                ouverture: '08h15'
+                fermeture: '20h30'
+            -
+                jour: Vendredi
+                ouverture: '08h15'
+                fermeture: '21h00'
+            -
+                jour: Samedi
+                ouverture: '08h15'
+                fermeture: '20h30'
+            -
+                jour: Dimanche
+                ouverture: '09h00'
+                fermeture: '13h00'
+    -
+        name: 'Super-U'
+        image: 'images/clamart/systeme-u.png'
+        adresse: '14 rue de Vanves'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '08h30'
+                fermeture: '20h30'
+            -
+                jour: Mardi
+                ouverture: '08h30'
+                fermeture: '20h30'
+            -
+                jour: Mercredi
+                ouverture: '08h30'
+                fermeture: '20h30'
+            -
+                jour: Jeudi
+                ouverture: '08h30'
+                fermeture: '20h30'
+            -
+                jour: Vendredi
+                ouverture: '08h30'
+                fermeture: '20h30'
+            -
+                jour: Samedi
+                ouverture: '08h30'
+                fermeture: '20h00'
+            -
+                jour: Dimanche
+                ouverture: '09h00'
+                fermeture: '13h00'
+    -
+        name: 'Monoprix'
+        image: 'images/clamart/monoprix.png'
+        adresse: '27 Rue Paul Vaillant Couturier'
+        code_postal: 92140
+        ville: 'Clamart'
+        horaires:
+            -
+                jour: Lundi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Mardi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Mercredi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Jeudi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Vendredi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Samedi
+                ouverture: '08h30'
+                fermeture: '21h00'
+            -
+                jour: Dimanche
+                ouverture: '09h00'
+                fermeture: '20h00'

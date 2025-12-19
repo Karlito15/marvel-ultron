@@ -1,0 +1,66 @@
+email:
+  section: Email
+  icon: '<i class="fa-regular fa-envelope fa-xl"></i>'
+  items:
+  - content: Gmail
+    id: login_gmail
+    cmd: giancarlo.palumbo@gmail.com
+    help: null
+  - content: Free
+    id: login_free
+    cmd: giancarlo.palumbo@free.fr
+    help: null
+  - content: Hotmail
+    id: login_hotmail
+    cmd: vanzegian@hotmail.com
+    help: null
+  - content: Gmail
+    id: login_gmail151180
+    cmd: g.palumbo151180@gmail.com
+    help: null
+  - content: Gmail
+    id: login_sako
+    cmd: sako.my.rott@gmail.com
+    help: null
+
+coordonnees:
+  section: Coordonnées
+  icon: '<i class="fas fa-user-secret fa-xl"></i>'
+  items:
+  - content: Prénom
+    id: login_giancarlo
+    cmd: Giancarlo
+    help: null
+  - content: NOM
+    id: login_palumbo
+    cmd: PALUMBO
+    help: null
+  - content: Adresse
+    id: login_adresse
+    cmd: 5 allée de Meudon
+    help: null
+  - content: Code Postal
+    id: login_cp
+    cmd: 92140
+    help: null
+  - content: Ville
+    id: login_ville
+    cmd: Clamart
+    help: null
+  - content: Phone
+    id: login_phone
+    cmd: 0623099260
+    help: null
+
+login:
+  section: Login
+  icon: '<i class="fas fa-user-secret fa-xl"></i>'
+  items:
+  - content: gian
+    id: login_gian
+    cmd: gian
+    help: null
+  - content: admin
+    id: login_admin
+    cmd: admin
+    help: null

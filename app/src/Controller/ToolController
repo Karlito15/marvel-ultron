@@ -1,0 +1,305 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/tool', name: 'app.tool.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class ToolController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/composer.php', name: 'composer')]
+    public function composer(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.composer');
+        $file  = 'tool/Composer.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://getcomposer.org/doc/',
+            'column'          => 3,
+        ]);
+    }
+
+    #[Route(path: '/git.php', name: 'git')]
+    public function git(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.git');
+        $file  = 'tool/Git.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://git-scm.com/docs/',
+            'column'          => 3,
+        ]);
+    }
+
+    #[Route(path: '/grunt.php', name: 'grunt')]
+    public function grunt(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.grunt');
+        $file  = 'tool/Grunt.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://gruntjs.com/getting-started',
+            'column'          => 3,
+        ]);
+    }
+
+    #[Route(path: '/gulp.php', name: 'gulp')]
+    public function gulp(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.gulp');
+        $file  = 'tool/Gulp.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://gulpjs.com/docs/en/getting-started/quick-start',
+            'column'          => 3,
+        ]);
+    }
+
+    #[Route(path: '/nodejs.php', name: 'nodejs')]
+    public function nodejs(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.nodejs');
+        $file  = 'tool/NodeJS.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/phpcs.php', name: 'phpcs')]
+    public function phpcs(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.phpcs');
+        $file  = 'tool/PHPCS.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/phpcsfixer.php', name: 'phpcsfixer')]
+    public function phpcsfixer(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.phpcsfixer');
+        $file  = 'tool/PHPCSFixer.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/phpstan.php', name: 'phpstan')]
+    public function phpstan(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.phpstan');
+        $file  = 'tool/PHPStan.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://phpstan.org/user-guide/getting-started/',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/phpunit.php', name: 'phpunit')]
+    public function phpunit(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.phpunit');
+        $file  = 'tool/PHPUnit.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://phpunit.readthedocs.io/fr/latest/index.html',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/sendmail.php', name: 'sendmail')]
+    public function sendmail(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.sendmail');
+        $file  = 'tool/Sendmail.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/symfony.php', name: 'symfony')]
+    public function symfony(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.symfony');
+        $file  = 'tool/Symfony.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://symfony.com/doc/current/index.html',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/taskfile.php', name: 'taskfile')]
+    public function taskfile(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.taskfile');
+        $file  = 'tool/Taskfile.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://taskfile.dev/fr-FR/usage/',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/twig.php', name: 'twig')]
+    public function twig(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.twig');
+        $file  = 'tool/Twig.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://twig.symfony.com/doc/',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/vagrant.php', name: 'vagrant')]
+    public function vagrant(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.vagrant');
+        $file  = 'tool/Vagrant.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://developer.hashicorp.com/vagrant/docs',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/webpack.php', name: 'webpack')]
+    public function webpack(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.webpack');
+        $file  = 'tool/Webpack.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://webpack.js.org/guides/getting-started/',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/xdebug.php', name: 'xdebug')]
+    public function xdebug(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.xdebug');
+        $file  = 'tool/Xdebug.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+
+    #[Route(path: '/yarn.php', name: 'yarn')]
+    public function yarn(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.yarn');
+        $file  = 'tool/Yarn.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.tool'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 1,
+        ]);
+    }
+}

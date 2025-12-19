@@ -1,0 +1,11 @@
+
+{% block content %}
+
+    <div class="jumbotron bg-dark shadow rounded p-15">
+        <h1 class="h2 font-weight-bold float-left">{{ breadcrumb.level2 }}</h1>
+        <div class="clearfix"></div>
+    </div>
+    <twig:Card data="{{ datas }}" column="{{ column }}" />
+{% endblock %}
+
+{% extends '@App/bases/full.html.twig' %}

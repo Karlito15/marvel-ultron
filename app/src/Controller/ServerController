@@ -1,0 +1,84 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/server', name: 'app.server.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class ServerController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/dsm.php', name: 'dsm')]
+    public function dsm(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.dsm');
+        $file  = 'server/DSM.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.server'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/linux.php', name: 'linux')]
+    public function linux(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.linux');
+        $file  = 'server/Linux.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.server'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/raspberry.php', name: 'raspberry')]
+    public function raspberry(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.raspberry');
+        $file  = 'server/Raspberry.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.server'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/windows.php', name: 'windows')]
+    public function windows(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.windows');
+        $file  = 'server/Windows.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.server'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+}

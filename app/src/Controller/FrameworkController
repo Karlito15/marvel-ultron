@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/framework', name: 'app.framework.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class FrameworkController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/codeigniter.php', name: 'codeigniter')]
+    public function codeigniter(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.codeigniter');
+        $file  = 'framework/CodeIgniter.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => '',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/doctrine.php', name: 'doctrine')]
+    public function doctrine(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.doctrine');
+        $file  = 'framework/Doctrine.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => '',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/grav.php', name: 'grav')]
+    public function grav(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.grav');
+        $file  = 'framework/Grav.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => '',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/symfony.php', name: 'symfony')]
+    public function symfony(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.symfony');
+        $file  = 'framework/Symfony.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => 'https://symfony.com/doc/current/index.html',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/symfony-stof.php', name: 'symfony-stof')]
+    public function symfonySTOF(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.stof.bundle');
+        $file  = 'framework/Symfony-stof.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => '',
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/wordpress.php', name: 'wordpress')]
+    public function wordpress(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.wordpress');
+        $file  = 'framework/Wordpress.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.framework'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => '',
+            'column'          => 2,
+        ]);
+    }
+}

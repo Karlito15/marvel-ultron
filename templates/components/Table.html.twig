@@ -1,0 +1,43 @@
+
+{% for key, value in this.datas %}
+    {% if key == this.filter %}
+        {% for item in value %}
+            {{ _self.table(item) }}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% macro table(datas) %}
+    <div class="card">
+        <div class="header text-center">
+            <p><img src="{{ asset(datas.image)}}" alt="{{ datas.name }}" height="100" /></p>
+            <h5 class="card-title text-white-50 font-weight-bold">&nbsp;{{ datas.name }}&nbsp;</h5>
+        </div>
+        <div class="body p-0">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-left">&nbsp;</th>
+                        <th class="text-center font-weight-light">Ouverture</th>
+                        <th class="text-center font-weight-light">Fermeture</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in datas.horaires %}
+                    <tr>
+                        <td class="text-left">{{ item.jour }}</td>
+                        <td class="text-center font-weight-bold">{{ item.ouverture }}</td>
+                        <td class="text-center font-weight-bold">{{ item.fermeture }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <p class="card-text">{{ datas.adresse }},<br>{{ datas.code_postal }} {{ datas.ville|upper }}<br></p>
+        </div>
+    </div>
+
+{% endmacro %}

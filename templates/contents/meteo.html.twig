@@ -1,0 +1,24 @@
+
+{% block content %}
+
+    <div class="jumbotron bg-dark shadow rounded p-15">
+        <h1 class="h2 font-weight-bold float-left">{{ breadcrumb.level2 }}</h1>
+        {% if documentation is defined and documentation is not null %}{% include '@App/partials/documentation.html.twig' %}{% endif %}
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <iframe
+                    src="https://www.meteo-paris.com/widget/prevision-meteo?type=auto&amp;city=clamart-92140&amp;wgt=full&amp;days=5&amp;oy-opc=0.1&amp;oy-rad=17"
+                    style="width: 800px; height: 600px;"
+                >
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% extends '@App/bases/full.html.twig' %}

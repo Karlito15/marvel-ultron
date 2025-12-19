@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\ControllerTrait;
+use App\Service\File\YamlToArrayTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(path: '{_locale<%app.supported_locales%>}/language', name: 'app.language.', options: ['expose' => false], schemes: ['http', 'https'], format: 'html', utf8: true)]
+final class LanguageController extends AbstractController
+{
+    use ControllerTrait;
+    use YamlToArrayTrait;
+
+    #[Route(path: '/mysql.php', name: 'mysql')]
+    public function mysql(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.mysql');
+        $file  = 'language/MySQL.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.memo'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+
+    #[Route(path: '/php.php', name: 'php')]
+    public function php(): Response
+    {
+        // Variables
+        $title = $this->translator->trans('text.php');
+        $file  = 'language/PHP.yaml';
+
+        return $this->render('@App/contents/card.html.twig', [
+            'controller_name' => $title,
+            'container'       => 'container-fluid',
+            'breadcrumb'      => ['level1' => $this->translator->trans('text.memo'), 'level2' => $title],
+            'data'            => self::reader($this->getDirectory() . $file),
+            'documentation'   => null,
+            'column'          => 2,
+        ]);
+    }
+}
